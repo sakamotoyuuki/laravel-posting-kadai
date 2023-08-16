@@ -41,8 +41,8 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
+            'title' => 'required|max:40',
+            'content' => 'required|max:200',
         ]);
         $post->title = $request->input('title');
         $post->content = $request->input('content');
